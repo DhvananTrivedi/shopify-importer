@@ -6,7 +6,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @ComponentScan(basePackages = {"com.shopify"})
-//@EnableJpaRepositories("com.shopify.importer.repository.StudentRepository")
 @EnableScheduling
 @SpringBootApplication
 public class ShopifyImporterApplication {

@@ -2,28 +2,51 @@ package com.shopify.importer.dto;
 
 public class ProductImportResponseDTO {
 	
-	private int numberBeforeImport;
-	private int numberOfNewImported;
-	private int timeTaken;
+	private long numberOfProductsBeforeImport;
+	private long numberOfNewProductsImported;
+	private long numberOfExistingProductsDeleted;
+	private long numberOfProductsAfterImport;
+	private long timeTakenToQueryShopify;
+	private long totalTimeTaken;
 	private String message;
 	
-	public int getNumberBeforeImport() {
-		return numberBeforeImport;
+	public long getNumberOfProductsBeforeImport() {
+		return numberOfProductsBeforeImport;
 	}
-	public void setNumberBeforeImport(int numberBeforeImport) {
-		this.numberBeforeImport = numberBeforeImport;
+	public void setNumberOfProductsBeforeImport(long numberOfProductsBeforeImport) {
+		this.numberOfProductsBeforeImport = numberOfProductsBeforeImport;
 	}
-	public int getNumberOfNewImported() {
-		return numberOfNewImported;
+	public long getNumberOfNewProductsImported() {
+		return numberOfNewProductsImported;
 	}
-	public void setNumberOfNewImported(int numberOfNewImported) {
-		this.numberOfNewImported = numberOfNewImported;
+	public void setNumberOfNewProductsImported(long numberOfNewProductsImported) {
+		this.numberOfNewProductsImported = numberOfNewProductsImported;
 	}
-	public int getTimeTaken() {
-		return timeTaken;
+	public long getNumberOfExistingProductsDeleted() {
+		return numberOfExistingProductsDeleted;
 	}
-	public void setTimeTaken(int timeTaken) {
-		this.timeTaken = timeTaken;
+	public void setNumberOfExistingProductsDeleted(long numberOfExistingProductsDeleted) {
+		this.numberOfExistingProductsDeleted = numberOfExistingProductsDeleted;
+	}
+
+	public long getNumberOfProductsAfterImport() {
+		return numberOfProductsBeforeImport - numberOfExistingProductsDeleted + numberOfNewProductsImported;
+	}
+	
+	public void setNumberOfProductsAfterImport(long numberOfProductsAfterImport) {
+		this.numberOfProductsAfterImport = numberOfProductsAfterImport;
+	}
+	public long getTimeTakenToQueryShopify() {
+		return timeTakenToQueryShopify;
+	}
+	public void setTimeTakenToQueryShopify(long timeTakenToQueryShopify) {
+		this.timeTakenToQueryShopify = timeTakenToQueryShopify;
+	}
+	public long getTotalTimeTaken() {
+		return totalTimeTaken;
+	}
+	public void setTotalTimeTaken(long totalTimeTaken) {
+		this.totalTimeTaken = totalTimeTaken;
 	}
 	public String getMessage() {
 		return message;
@@ -31,5 +54,5 @@ public class ProductImportResponseDTO {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-
+	
 }

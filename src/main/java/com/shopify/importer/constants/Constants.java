@@ -13,4 +13,6 @@ public class Constants {
 	
 	public static final String HTTPS_PREFIX = "https://";
 	
+	public static final String IMPORT_SUCCESS_MESSAGE = "Product import has been successful!";
+	
 }
