@@ -61,5 +61,56 @@ public class Variant implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((inventory_quantity == null) ? 0 : inventory_quantity.hashCode());
+		result = prime * result + ((product_id == null) ? 0 : product_id.hashCode());
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Variant other = (Variant) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (inventory_quantity == null) {
+			if (other.inventory_quantity != null)
+				return false;
+		} else if (!inventory_quantity.equals(other.inventory_quantity))
+			return false;
+		if (product_id == null) {
+			if (other.product_id != null)
+				return false;
+		} else if (!product_id.equals(other.product_id))
+			return false;
+		if (title == null) {
+			if (other.title != null)
+				return false;
+		} else if (!title.equals(other.title))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Variant [id=" + id + ", title=" + title + ", product_id=" + product_id + ", inventory_quantity="
+				+ inventory_quantity + "]";
+	}
+	
+	
 	
 }
