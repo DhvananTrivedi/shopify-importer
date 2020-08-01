@@ -28,6 +28,7 @@ import com.shopify.importer.dto.ProductImportResponseDTO;
 import com.shopify.importer.dto.ShopifyProductResponse;
 import com.shopify.importer.model.ConfigurableProduct;
 import com.shopify.importer.model.SimpleProduct;
+import com.shopify.importer.repository.ConfigurableProductRepository;
 import com.shopify.importer.repository.SimpleProductRepository;
 
 @Component
@@ -46,6 +47,9 @@ public class ProductService {
 	
 	@Autowired
 	private SimpleProductRepository simpleProductRepository;
+	
+	@Autowired
+	private ConfigurableProductRepository configurableProductRepository;
 	
 	public ProductImportResponseDTO syncLocalDb() {
 		final ProductImportResponseDTO responseDto = new ProductImportResponseDTO();
@@ -88,7 +92,7 @@ public class ProductService {
 				ShopifyProductResponse.class).getBody();
 		final long timeTaken = System.currentTimeMillis() - startTime;
 		
-		responseDto.setTimeTakenToQueryShopify(timeTaken);
+		responseDto.setTimeTakenToQueryShopifyInMillis(timeTaken);
 		LOG.info("time taken to query /{} was {} ms", api, timeTaken);
 		
 		return shopifyProductResponse;
@@ -133,5 +137,11 @@ public class ProductService {
 		LOG.info("time taken to update products in db = {} ms", timeTaken);
 	}
 	
-
+	public List<SimpleProduct> getAllSimpleProducts () {
+		return simpleProductRepository.findAll();
+	}
+	
+	public List<ConfigurableProduct> getAllConfigurableProducts () {
+		return configurableProductRepository.findAll();
+	}
 }

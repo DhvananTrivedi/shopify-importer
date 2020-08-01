@@ -5,9 +5,9 @@ public class ProductImportResponseDTO {
 	private long numberOfProductsBeforeImport;
 	private long numberOfNewProductsImported;
 	private long numberOfExistingProductsDeleted;
-	private long numberOfProductsAfterImport;
-	private long timeTakenToQueryShopify;
-	private long totalTimeTaken;
+//	private long numberOfProductsAfterImport;
+	private long timeTakenToQueryShopifyInMillis;
+	private long totalTimeTakenInMillis;
 	private String message;
 	
 	public long getNumberOfProductsBeforeImport() {
@@ -28,25 +28,20 @@ public class ProductImportResponseDTO {
 	public void setNumberOfExistingProductsDeleted(long numberOfExistingProductsDeleted) {
 		this.numberOfExistingProductsDeleted = numberOfExistingProductsDeleted;
 	}
-
-	public long getNumberOfProductsAfterImport() {
-		return numberOfProductsBeforeImport - numberOfExistingProductsDeleted + numberOfNewProductsImported;
+//	public void setNumberOfProductsAfterImport(long numberOfProductsAfterImport) {
+//		this.numberOfProductsAfterImport = numberOfProductsAfterImport;
+//	}
+	public long getTimeTakenToQueryShopifyInMillis() {
+		return timeTakenToQueryShopifyInMillis;
 	}
-	
-	public void setNumberOfProductsAfterImport(long numberOfProductsAfterImport) {
-		this.numberOfProductsAfterImport = numberOfProductsAfterImport;
+	public void setTimeTakenToQueryShopifyInMillis(long timeTakenToQueryShopifyInMillis) {
+		this.timeTakenToQueryShopifyInMillis = timeTakenToQueryShopifyInMillis;
 	}
-	public long getTimeTakenToQueryShopify() {
-		return timeTakenToQueryShopify;
+	public long getTotalTimeTakenInMillis() {
+		return totalTimeTakenInMillis;
 	}
-	public void setTimeTakenToQueryShopify(long timeTakenToQueryShopify) {
-		this.timeTakenToQueryShopify = timeTakenToQueryShopify;
-	}
-	public long getTotalTimeTaken() {
-		return totalTimeTaken;
-	}
-	public void setTotalTimeTaken(long totalTimeTaken) {
-		this.totalTimeTaken = totalTimeTaken;
+	public void setTotalTimeTakenInMillis(long totalTimeTakenInMillis) {
+		this.totalTimeTakenInMillis = totalTimeTakenInMillis;
 	}
 	public String getMessage() {
 		return message;
@@ -54,5 +49,10 @@ public class ProductImportResponseDTO {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+	
+	public long getNumberOfProductsAfterImport() {
+		return numberOfProductsBeforeImport - numberOfExistingProductsDeleted + numberOfNewProductsImported;
+	}
+	
 	
 }
