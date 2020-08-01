@@ -7,7 +7,6 @@ import javax.persistence.*;
 public class Student {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name="id")
 	private Long id;
 	

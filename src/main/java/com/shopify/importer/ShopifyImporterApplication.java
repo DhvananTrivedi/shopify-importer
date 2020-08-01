@@ -5,8 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import com.shopify.importer.controller.ProductController;
-
 @ComponentScan(basePackages = {"com.shopify"})
 //@EnableJpaRepositories("com.shopify.importer.repository.StudentRepository")
 @SpringBootApplication
