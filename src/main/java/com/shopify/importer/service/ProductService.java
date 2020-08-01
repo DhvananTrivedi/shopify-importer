@@ -133,6 +133,7 @@ public class ProductService {
 			simpleProductRepository.deleteAll(existingProductsToDelete);
 			responseDto.setNumberOfExistingProductsDeleted(existingProductsToDelete.size());
 		}
+		
 		long timeTaken = System.currentTimeMillis() - start;
 		LOG.info("time taken to update products in db = {} ms", timeTaken);
 	}
