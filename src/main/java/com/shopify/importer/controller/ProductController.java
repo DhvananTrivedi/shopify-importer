@@ -39,7 +39,7 @@ public class ProductController {
 
 	
 	@GetMapping("/configurable/get-all")
-	public List<ConfigurableProduct> getAllSimpleProduct() {
+	public List<ConfigurableProduct> getAllConfigurableProducts() {
 		return productService.getAllConfigurableProducts();
 	}
 

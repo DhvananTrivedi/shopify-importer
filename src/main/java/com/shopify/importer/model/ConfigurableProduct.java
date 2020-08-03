@@ -57,5 +57,13 @@ public class ConfigurableProduct extends SimpleProduct{
 		return true;
 	}
 
+	public List<Variant> getVariants() {
+		return variants;
+	}
+
+	public void setVariants(List<Variant> variants) {
+		this.variants = variants;
+	}
+
 	
 }
