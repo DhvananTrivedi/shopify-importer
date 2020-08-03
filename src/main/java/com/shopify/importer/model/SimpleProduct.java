@@ -3,6 +3,7 @@ package com.shopify.importer.model;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
@@ -15,6 +16,7 @@ import com.shopify.importer.dto.Product;
 @Table(name = "product")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(discriminatorType = DiscriminatorType.INTEGER, name = "type", columnDefinition = "INTEGER")
+@DiscriminatorValue("0")
 public class SimpleProduct {
 
 	@Id
